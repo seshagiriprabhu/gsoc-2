@@ -1,0 +1,75 @@
+#include "createuserprofile.hpp"
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QLineEdit>
+
+createUserProfile::createUserProfile(QWidget *parent) :
+    QDialog(parent)
+{
+    QString btnCSS =
+        "QPushButton {"
+        "margin: 1px;"
+        "border-color: #6BC260;"
+        "border-style: outset;"
+        "border-radius: 3px;"
+        "font-size: 11px;"
+        "border-width: 0.2px;"
+        "color: white;"
+        "font-weight: bold;"
+        "background-color: #6BC260;"
+        "}"
+        "QPushButton:hover {"
+        "background-color: #0BC260;"
+        "}";
+
+    QVBoxLayout *registerLayout = new QVBoxLayout;
+    QLabel *usernameLabel = new QLabel(tr("Create &Nickname"));
+    username = new QLineEdit(this);
+    username->setMaximumHeight(30);
+    username->setFixedHeight(30);
+    username->setMaximumWidth(200);
+    username->setFixedWidth(200);
+    usernameLabel->setBuddy(username);
+
+    QLabel *passwordLabel = new QLabel(tr("Create &Password"));
+    password = new QLineEdit(this);
+    password->setMaximumHeight(30);
+    password->setFixedHeight(30);
+    password->setMaximumWidth(200);
+    password->setFixedWidth(200);
+    password->setEchoMode(QLineEdit::Password);
+    passwordLabel->setBuddy(password);
+
+    registerLayout->addWidget(usernameLabel);
+    registerLayout->addWidget(username);
+    registerLayout->addWidget(passwordLabel);
+    registerLayout->addWidget(password);
+
+    QHBoxLayout *buttonLayout = new QHBoxLayout;
+
+    registerButton = new QPushButton(tr("&Create profile"));
+    registerButton->setStyleSheet(btnCSS);
+    registerButton->setFixedHeight(35);
+    registerButton->setFixedWidth(120);
+
+    buttonLayout->setAlignment(Qt::AlignRight);
+    buttonLayout->addWidget(registerButton);
+
+    registerLayout->addLayout(buttonLayout);
+    registerLayout->setSizeConstraint(QLayout::SetFixedSize);
+    setLayout(registerLayout);
+    setWindowIcon(QIcon(":/icons/icon64.png"));
+    setWindowTitle("Import profile");
+    setModal(true);
+    show();
+}
+
+QString createUserProfile::getUsername()
+{
+
+}
+
+QString createUserProfile::getPassword()
+{
+
+}
