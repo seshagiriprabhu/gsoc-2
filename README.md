@@ -14,5 +14,6 @@ Compiler with `c++11` support
 ![File Dialog](https://raw.github.com/seshagiriprabhu/gsoc-2/master/screenshots/filedialog.png)
 ![Data loaded](https://raw.github.com/seshagiriprabhu/gsoc-2/master/screenshots/data_loaded.png)
 ![User profile creation Dialog](https://raw.github.com/seshagiriprabhu/gsoc-2/master/screenshots/password_dialog.png)
+![Encrypted User profile import](https://raw.github.com/seshagiriprabhu/gsoc-2/master/screenshots/encrypted_import.png)
 
 
