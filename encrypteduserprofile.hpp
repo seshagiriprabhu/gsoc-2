@@ -16,6 +16,11 @@ private:
     QPushButton *loginButton;
     QLabel *username;
     QLineEdit *password;
+    QLabel *hint;
+
+
+private slots:
+    void on_button_clicked();
 
 public:
     explicit encrypteduserprofile(QWidget *parent = 0);

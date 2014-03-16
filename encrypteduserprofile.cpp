@@ -2,6 +2,13 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QLineEdit>
+#include <QMessageBox>
+void encrypteduserprofile::on_button_clicked()
+{
+    if (password->text().isEmpty()) {
+        hint->setText(tr("Empty password!"));
+    }
+}
 
 encrypteduserprofile::encrypteduserprofile(QWidget *parent) :
     QDialog(parent)
@@ -21,6 +28,11 @@ encrypteduserprofile::encrypteduserprofile(QWidget *parent) :
             "QPushButton:hover {"
             "background-color: #0BC260;"
             "}";
+        QString hintCSS =
+                "QLabel {"
+                "color: red"
+                "}";
+
         QVBoxLayout *loginLayout = new QVBoxLayout;
         QHBoxLayout *usernameLayout = new QHBoxLayout;
         QLabel *usernameLabel = new QLabel(tr("Nickname:"));
@@ -43,12 +55,19 @@ encrypteduserprofile::encrypteduserprofile(QWidget *parent) :
         loginButton->setStyleSheet(btnCSS);
         loginButton->setFixedHeight(35);
         loginButton->setFixedWidth(80);
+        loginButton->setCursor(Qt::PointingHandCursor);
 
+        connect (loginButton, &QPushButton::clicked, this, &encrypteduserprofile::on_button_clicked);
         buttonLayout->setAlignment(Qt::AlignRight);
         buttonLayout->addWidget(loginButton);
 
+        hint = new QLabel(this);
+        hint->setStyleSheet(hintCSS);
+        hint->setAlignment(Qt::AlignHCenter);
+
         loginLayout->addLayout(usernameLayout);
         loginLayout->addWidget(password);
+        loginLayout->addWidget(hint);
         loginLayout->addLayout(buttonLayout);
         loginLayout->setSizeConstraint(QLayout::SetFixedSize);
         setLayout(loginLayout);

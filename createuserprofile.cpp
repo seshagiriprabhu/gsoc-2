@@ -3,6 +3,13 @@
 #include <QHBoxLayout>
 #include <QLineEdit>
 
+void createUserProfile::on_create_button_clicked()
+{
+    if (username->text().isEmpty() || password->text().isEmpty()) {
+        hint->setText(tr("Invalid username or password"));
+    }
+}
+
 createUserProfile::createUserProfile(QWidget *parent) :
     QDialog(parent)
 {
@@ -20,6 +27,10 @@ createUserProfile::createUserProfile(QWidget *parent) :
         "}"
         "QPushButton:hover {"
         "background-color: #0BC260;"
+        "}";
+    QString hintCSS =
+        "QLabel {"
+        "color: red"
         "}";
 
     QVBoxLayout *registerLayout = new QVBoxLayout;
@@ -51,10 +62,16 @@ createUserProfile::createUserProfile(QWidget *parent) :
     registerButton->setStyleSheet(btnCSS);
     registerButton->setFixedHeight(35);
     registerButton->setFixedWidth(120);
+    registerButton->setCursor(Qt::PointingHandCursor);
+
+    hint = new QLabel;
+    hint->setStyleSheet(hintCSS);
+    hint->setAlignment(Qt::AlignHCenter);
 
     buttonLayout->setAlignment(Qt::AlignRight);
     buttonLayout->addWidget(registerButton);
 
+    registerLayout->addWidget(hint);
     registerLayout->addLayout(buttonLayout);
     registerLayout->setSizeConstraint(QLayout::SetFixedSize);
     setLayout(registerLayout);
