@@ -39,13 +39,14 @@ void ImportDialog::on_browse_clicked()
 void ImportDialog::on_import_clicked()
 {
     // Call the validation function
-    /* if (dataType == "encrypted") {
-     *
-     * } else { // code for raw profile import */
-    qDebug() << "Created profile dialog";
-    userProfileDialog = new createUserProfile;
-    userProfileDialog->show();
-    /*}*/
+    /* if (dataType == "encrypted") {*/
+    existingProfileDialog = new encrypteduserprofile;
+    existingProfileDialog->show();
+     /* } else { // code for raw profile import
+     * qDebug() << "Created profile dialog";
+     * userProfileDialog = new createUserProfile;
+     * userProfileDialog->show();
+     * }*/
 }
 
 ImportDialog::ImportDialog(QWidget *parent)
@@ -117,7 +118,7 @@ ImportDialog::ImportDialog(QWidget *parent)
     QHBoxLayout *dataTypeLayout = new QHBoxLayout;
     QLabel *dataTypeLabel = new QLabel(tr("Profile type\t\t:"), this);
     dataType = new QLabel;
-    dataType->setText(tr("Raw"));
+    dataType->setText(tr("Encrypted"));
     dataType->setFixedWidth(200);
     dataTypeLayout->addWidget(dataTypeLabel);
     dataTypeLayout->addWidget(dataType);

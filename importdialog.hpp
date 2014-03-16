@@ -2,8 +2,8 @@
 #define IMPORTDIALOG_HPP
 
 #include "createuserprofile.hpp"
+#include "encrypteduserprofile.hpp"
 #include <QDialog>
-#include <QStackedWidget>
 #include <QLineEdit>
 #include <QLabel>
 
@@ -21,6 +21,7 @@ private:
     QLabel *timeAccessed;
     QLabel *dataType;
     createUserProfile *userProfileDialog;
+    encrypteduserprofile *existingProfileDialog;
     void parseFile();
 
 private slots:

@@ -14,11 +14,13 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         importdialog.cpp \
-    createuserprofile.cpp
+    createuserprofile.cpp \
+    encrypteduserprofile.cpp
 
 HEADERS  += \
     createuserprofile.hpp \
-    importdialog.hpp
+    importdialog.hpp \
+    encrypteduserprofile.hpp
 
 RESOURCES += \
     resources.qrc

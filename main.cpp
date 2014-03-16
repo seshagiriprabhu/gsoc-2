@@ -1,4 +1,5 @@
 #include "importdialog.hpp"
+#include "encrypteduserprofile.hpp"
 #include "createuserprofile.hpp"
 
 #include <QApplication>
